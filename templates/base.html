@@ -16,7 +16,7 @@
       <a class="navbar-brand" href="#">Personal Blog</a>
       <div class="d-flex align-items-center justify-content-end py-3">
         {% if user.is_authenticated %}
-          <form action="{% url 'logout' %}" method="post">
+          <form action="{% url 'users:logout' %}" method="post">
             {% csrf_token %}
             <button class="btn btn-outline-success me-2" type="submit">Log Out</button>
           </form>
