@@ -2,8 +2,14 @@
 
 {% block content %}
 
-{% for post in posts %}
-<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-{% endfor %}
+<ul class="list-unstyled">
+  {% for post in posts %}
+  <li class="py-2">
+    <h2><a class="text-dark link-underline link-underline-opacity-0 link-underline-warning-hover link-underline-opacity-75-hover link-offset-2"
+           href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    <p class="text-muted pt-1">{{ post.date_posted|date }}</p>
+  </li>
+  {% endfor %}
+</ul>
 
 {% endblock content %}

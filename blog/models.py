@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 
 
 user = get_user_model()
@@ -13,7 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, blank=True)
     content = models.TextField()
-    date_posted = models.DateTimeField(auto_now_add=True)
+    date_posted = models.DateTimeField(default=timezone.now)
     date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):

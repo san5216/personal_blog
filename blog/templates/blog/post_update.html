@@ -4,10 +4,12 @@
 
 {% block content %}
 
+<h2>Update Post</h2>
+
 <form action="" method="post">
   {% csrf_token %}
   {{ form|crispy }}
-  <button class="btn btn-primary btn-lg" type="submit">Log In</button>
+  <button class="btn btn-outline-primary" type="submit">Update</button>
 </form>
 
 {% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<article class="w-50">
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.date_posted|date }}</p>
+  {{ post.content|linebreaks }}
+</article>
+
+{% endblock content %}
