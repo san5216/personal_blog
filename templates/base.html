@@ -11,23 +11,20 @@
 </head>
 
 <body class="bg-tertiary-subtle">
-<header>
-  <nav class="navbar bg-primary border-bottom border-body mb-4">
-    <div class="container">
-      <a class="navbar-brand text-light fs-2" href="{% url 'blog:home' %}">Personal Blog</a>
-      <div class="d-flex align-items-center py-3">
-        {% if user.is_authenticated %}
-        <a class="btn btn-dark me-4" href="{% url 'blog:dashboard' %}">Dashboard</a>
-          <form action="{% url 'users:logout' %}" method="post">
-            {% csrf_token %}
-            <button class="btn btn-outline-light me-2" type="submit">Log Out</button>
-          </form>
-        {% else %}
-          <a class="btn btn-outline-light me-2" href="{% url 'users:login' %}">Login</a>
-        {% endif %}
-      </div>
-    </div>
-  </nav>
+<header class="pb-4">
+
+
+<nav class="navbar bg-primary py-3" data-bs-theme="dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'blog:home' %}">Personal Blog</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button class="btn btn-outline-dark" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
 </header>
 <main class="container">
   {% block content %}
