@@ -5,7 +5,9 @@
     <ul class="list-unstyled">
         {% for post in posts %}
             <li class="py-2 d-flex justify-content-between">
-                <h2>{{ post.title }}</h2>
+                <h2>
+                    {{ post.title }} <span class="fs-4 text-muted">/ {{ post.category }}</span>
+                </h2>
                 <div class="buttons">
                     <a class="btn btn-outline-primary me-2"
                        href="{% url 'blog:post_update' post.slug %} ">Edit</a>
