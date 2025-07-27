@@ -29,7 +29,7 @@ class Dashboard(LoginRequiredMixin, ListView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ["title", "content"]
+    fields = ["title", "content", "category"]
     template_name = "blog/post_create.html"
 
     def form_valid(self, form):
@@ -39,7 +39,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ["title", "content"]
+    fields = ["title", "content", "category"]
     template_name = "blog/post_update.html"
     slug_url_kwarg = "post_slug"
 
