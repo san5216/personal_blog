@@ -10,6 +10,16 @@ from django.utils import timezone
 user = get_user_model()
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50, default="")
+
+    class Meta:
+        verbose_name_plural = "categories"
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     author = models.ForeignKey(user, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
