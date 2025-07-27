@@ -9,6 +9,7 @@ from django.utils import timezone
 
 user = get_user_model()
 
+
 class Post(models.Model):
     author = models.ForeignKey(user, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
@@ -34,9 +35,7 @@ class Post(models.Model):
         self.slug = slug
 
     def save(self, *args, **kwargs):
-
         if not self.pk:
             self._generate_slug()
 
         super().save(*args, **kwargs)
-
