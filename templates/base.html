@@ -25,10 +25,12 @@
                                    name="query" />
                             <button class="btn btn-outline-dark" type="submit">Search</button>
                         </form>
-                        <form action="{% url 'users:logout' %}" method="post">
-                            {% csrf_token %}
-                            <button class="btn btn-outline-light" type="submit">Logout</button>
-                        </form>
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'users:logout' %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-light" type="submit">Logout</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </div>
             </nav>
