@@ -16,14 +16,20 @@
             <nav class="navbar bg-primary py-3" data-bs-theme="dark">
                 <div class="container">
                     <a class="navbar-brand" href="{% url 'blog:home' %}">Personal Blog</a>
-                    <form class="d-flex" role="search" action="{% url 'blog:results' %}">
-                        <input class="form-control me-2"
-                               type="search"
-                               placeholder="Search"
-                               aria-label="Search"
-                               name="query" />
-                        <button class="btn btn-outline-dark" type="submit">Search</button>
-                    </form>
+                    <div class="d-flex">
+                        <form class="d-flex me-4" role="search" action="{% url 'blog:results' %}">
+                            <input class="form-control me-2"
+                                   type="search"
+                                   placeholder="Search"
+                                   aria-label="Search"
+                                   name="query" />
+                            <button class="btn btn-outline-dark" type="submit">Search</button>
+                        </form>
+                        <form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-outline-light" type="submit">Logout</button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </header>
